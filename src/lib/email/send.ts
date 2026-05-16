@@ -4,6 +4,7 @@ import {
   confirmationEmail,
   reminderEmail,
   gapAlertEmail,
+  invitationEmail,
 } from "./templates";
 import { generateICalForSlot } from "@/lib/ical";
 
@@ -38,6 +39,20 @@ async function safeSend(args: {
     console.error("[email:send-failed]", e);
     return { error: String(e) };
   }
+}
+
+export async function sendInvitation(opts: {
+  to: string;
+  recipientName: string;
+  coordinatorName: string;
+  magicLink: string;
+}) {
+  const { subject, html } = invitationEmail({
+    recipientName: opts.recipientName,
+    coordinatorName: opts.coordinatorName,
+    magicLink: opts.magicLink,
+  });
+  return safeSend({ to: opts.to, subject, html });
 }
 
 export async function sendInvite(opts: {

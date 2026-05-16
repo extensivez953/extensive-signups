@@ -60,6 +60,31 @@ function escape(s: string) {
     .replace(/"/g, "&quot;");
 }
 
+/** Welcome email sent when an admin adds someone new to the roster.
+ *  Includes a one-click magic link that signs them in. */
+export function invitationEmail(opts: {
+  recipientName: string;
+  coordinatorName: string;
+  magicLink: string;
+}) {
+  const subject = `You're on the St John the Apostle Safety Team`;
+  const senderFirst = opts.coordinatorName.split(" ")[0];
+  const bodyHtml = `
+    <p style="margin:0 0 12px 0;font-size:15px;">Hi ${escape(opts.recipientName.split(" ")[0])},</p>
+    <p style="margin:0 0 12px 0;font-size:15px;">${escape(senderFirst)} added you to the St John the Apostle safety team. You can now sign up for Mass coverage slots online.</p>
+    <p style="margin:0 0 16px 0;font-size:15px;">Click the button below to sign in. No password needed — this link will sign you in directly.</p>
+    <div style="margin:24px 0;">${button("Sign Me In", opts.magicLink)}</div>
+    <p style="margin:24px 0 0 0;font-size:13px;color:#888;">This link works for 1 hour. If it expires, just visit the site and click &ldquo;Continue with Email&rdquo; to request a new one.</p>
+    <p style="margin:24px 0 0 0;font-size:13px;color:#888;">
+      Welcome aboard — ${escape(senderFirst)}
+    </p>
+  `;
+  return {
+    subject,
+    html: shell({ subject, bodyHtml, coordinatorName: opts.coordinatorName }),
+  };
+}
+
 /** Email sent when an admin publishes an event (invites the roster). */
 export function inviteEmail(opts: {
   recipientName: string;

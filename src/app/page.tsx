@@ -2,11 +2,12 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { signInWithGoogle } from "./actions";
 import { SubmitButton } from "@/components/SubmitButton";
+import { MagicLinkForm } from "./MagicLinkForm";
 
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; sent?: string; msg?: string }>;
 }) {
   const supabase = await createClient();
   const {
@@ -16,7 +17,7 @@ export default async function LoginPage({
   // Already signed in → straight to dashboard
   if (user) redirect("/dashboard");
 
-  const { error } = await searchParams;
+  const { error, sent, msg } = await searchParams;
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-slate-950">
@@ -46,6 +47,11 @@ export default async function LoginPage({
             Sign-in failed. Please try again.
           </div>
         )}
+        {error === "email" && (
+          <div className="mb-6 p-3 bg-red-900/30 border border-red-800 rounded-lg text-sm text-red-200">
+            {msg ?? "Couldn't send the sign-in link. Please try again."}
+          </div>
+        )}
 
         <form action={signInWithGoogle}>
           <SubmitButton className="w-full bg-white text-slate-900 font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-3 hover:bg-slate-100 transition cursor-pointer">
@@ -71,10 +77,12 @@ export default async function LoginPage({
           </SubmitButton>
         </form>
 
+        <MagicLinkForm sentTo={sent} />
+
         <p className="mt-8 text-xs text-slate-500">
           Sign in is restricted to team members.
           <br />
-          Contact Matt Dooley if you need access.
+          Contact Mike Repa if you need access.
         </p>
         <p className="mt-6 text-xs text-slate-600">
           <a href="/privacy" className="hover:text-slate-400 underline">
