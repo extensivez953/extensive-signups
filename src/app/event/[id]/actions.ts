@@ -55,7 +55,7 @@ export async function signUpForSlot(formData: FormData) {
   const { data: details } = await supabase
     .from("slots")
     .select(
-      "role, mass:masses(label, mass_date, start_time, location, event:events(name))",
+      "role, mass:masses(label, mass_date, start_time, location, event:events(name, creator:members!events_created_by_fkey(name)))",
     )
     .eq("id", slotId)
     .single();
@@ -67,7 +67,7 @@ export async function signUpForSlot(formData: FormData) {
       mass_date: string;
       start_time: string;
       location: string;
-      event: { name: string };
+      event: { name: string; creator: { name: string } | null };
     };
   };
   const d = details as unknown as Details | null;
@@ -75,6 +75,7 @@ export async function signUpForSlot(formData: FormData) {
     await sendConfirmation({
       to: member.email,
       recipientName: member.name,
+      coordinatorName: d.mass.event.creator?.name,
       eventId,
       eventName: d.mass.event.name,
       signupId: inserted.id,

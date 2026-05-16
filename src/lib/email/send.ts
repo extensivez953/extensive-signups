@@ -43,6 +43,7 @@ async function safeSend(args: {
 export async function sendInvite(opts: {
   to: string;
   recipientName: string;
+  senderName: string;
   eventId: string;
   eventName: string;
   eventDescription: string | null;
@@ -50,6 +51,7 @@ export async function sendInvite(opts: {
   const eventUrl = `${SITE_URL}/event/${opts.eventId}`;
   const { subject, html } = inviteEmail({
     recipientName: opts.recipientName,
+    senderName: opts.senderName,
     eventName: opts.eventName,
     eventDescription: opts.eventDescription,
     eventUrl,
@@ -60,6 +62,7 @@ export async function sendInvite(opts: {
 export async function sendConfirmation(opts: {
   to: string;
   recipientName: string;
+  coordinatorName?: string;
   eventId: string;
   eventName: string;
   signupId: string;
@@ -73,6 +76,7 @@ export async function sendConfirmation(opts: {
   const cancelUrl = `${SITE_URL}/dashboard`;
   const { subject, html } = confirmationEmail({
     recipientName: opts.recipientName,
+    coordinatorName: opts.coordinatorName,
     eventName: opts.eventName,
     role: opts.role,
     massLabel: opts.massLabel,
@@ -101,6 +105,7 @@ export async function sendConfirmation(opts: {
 export async function sendReminder(opts: {
   to: string;
   recipientName: string;
+  coordinatorName?: string;
   eventId: string;
   role: string;
   massLabel: string;
@@ -113,6 +118,7 @@ export async function sendReminder(opts: {
   const cancelUrl = `${SITE_URL}/dashboard`;
   const { subject, html } = reminderEmail({
     recipientName: opts.recipientName,
+    coordinatorName: opts.coordinatorName,
     role: opts.role,
     massLabel: opts.massLabel,
     massDate: opts.massDate,
@@ -128,6 +134,7 @@ export async function sendReminder(opts: {
 export async function sendGapAlert(opts: {
   to: string;
   recipientName: string;
+  coordinatorName?: string;
   eventId: string;
   eventName: string;
   unfilledList: { role: string; massLabel: string; massDate: string }[];
@@ -135,6 +142,7 @@ export async function sendGapAlert(opts: {
   const eventUrl = `${SITE_URL}/admin/events/${opts.eventId}`;
   const { subject, html } = gapAlertEmail({
     recipientName: opts.recipientName,
+    coordinatorName: opts.coordinatorName,
     eventName: opts.eventName,
     unfilledList: opts.unfilledList,
     eventUrl,

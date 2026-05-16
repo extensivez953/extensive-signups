@@ -11,7 +11,7 @@
 const ACCENT = "#a86060";
 const ACCENT_DARK = "#8a4f4f";
 
-function shell(opts: { subject: string; bodyHtml: string }) {
+function shell(opts: { subject: string; bodyHtml: string; coordinatorName?: string }) {
   return `<!DOCTYPE html>
 <html>
   <head>
@@ -37,7 +37,7 @@ function shell(opts: { subject: string; bodyHtml: string }) {
             <tr>
               <td style="padding:20px 32px;background:#fafafa;border-top:1px solid #eee;font-size:12px;color:#888;">
                 This is an automated message from the Safety Team Signups app.
-                If you have questions, contact Matt Dooley.
+                ${opts.coordinatorName ? `If you have questions, contact ${escape(opts.coordinatorName)}.` : ""}
               </td>
             </tr>
           </table>
@@ -63,11 +63,13 @@ function escape(s: string) {
 /** Email sent when an admin publishes an event (invites the roster). */
 export function inviteEmail(opts: {
   recipientName: string;
+  senderName: string;
   eventName: string;
   eventDescription: string | null;
   eventUrl: string;
 }) {
   const subject = opts.eventName;
+  const senderFirst = opts.senderName.split(" ")[0];
   const bodyHtml = `
     <p style="margin:0 0 12px 0;font-size:15px;">Hi ${escape(opts.recipientName.split(" ")[0])},</p>
     <p style="margin:0 0 12px 0;font-size:15px;">A new signup is open. Please pick your slot when you have a moment.</p>
@@ -78,15 +80,19 @@ export function inviteEmail(opts: {
     }
     <div style="margin:24px 0;">${button("View & Sign Up", opts.eventUrl)}</div>
     <p style="margin:24px 0 0 0;font-size:13px;color:#888;">
-      Thanks for serving — Matt
+      Thanks for serving — ${escape(senderFirst)}
     </p>
   `;
-  return { subject, html: shell({ subject, bodyHtml }) };
+  return {
+    subject,
+    html: shell({ subject, bodyHtml, coordinatorName: opts.senderName }),
+  };
 }
 
 /** Email sent when a member signs up for a slot. Includes iCal attachment. */
 export function confirmationEmail(opts: {
   recipientName: string;
+  coordinatorName?: string;
   eventName: string;
   role: string;
   massLabel: string;
@@ -119,12 +125,16 @@ export function confirmationEmail(opts: {
       Can&apos;t make it? <a href="${opts.cancelUrl}" style="color:${ACCENT};">Cancel this signup</a>.
     </p>
   `;
-  return { subject, html: shell({ subject, bodyHtml }) };
+  return {
+    subject,
+    html: shell({ subject, bodyHtml, coordinatorName: opts.coordinatorName }),
+  };
 }
 
 /** Reminder email sent N hours before a Mass shift. */
 export function reminderEmail(opts: {
   recipientName: string;
+  coordinatorName?: string;
   role: string;
   massLabel: string;
   massDate: string;
@@ -156,12 +166,16 @@ export function reminderEmail(opts: {
       <a href="${opts.eventUrl}" style="color:${ACCENT};">View event</a>
     </p>
   `;
-  return { subject, html: shell({ subject, bodyHtml }) };
+  return {
+    subject,
+    html: shell({ subject, bodyHtml, coordinatorName: opts.coordinatorName }),
+  };
 }
 
 /** Gap-alert email to admins/recipients when a slot is unfilled near deadline. */
 export function gapAlertEmail(opts: {
   recipientName: string;
+  coordinatorName?: string;
   eventName: string;
   unfilledList: { role: string; massLabel: string; massDate: string }[];
   eventUrl: string;
@@ -187,5 +201,8 @@ export function gapAlertEmail(opts: {
     </table>
     <div style="margin:24px 0;">${button("Open Admin Dashboard", opts.eventUrl)}</div>
   `;
-  return { subject, html: shell({ subject, bodyHtml }) };
+  return {
+    subject,
+    html: shell({ subject, bodyHtml, coordinatorName: opts.coordinatorName }),
+  };
 }

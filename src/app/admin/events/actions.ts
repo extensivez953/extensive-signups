@@ -211,10 +211,19 @@ export async function publishEvent(formData: FormData) {
     .from("events")
     .update({ status: "open", invites_sent_at: new Date().toISOString() })
     .eq("id", id)
-    .select("id, name, description")
+    .select("id, name, description, created_by")
     .single();
 
   if (event) {
+    // Look up the event creator (the person publishing this) to use as the
+    // "signed by" name in the email body + the contact in the footer.
+    const { data: creator } = await supabase
+      .from("members")
+      .select("name")
+      .eq("id", event.created_by)
+      .single();
+    const senderName = creator?.name ?? "the safety team coordinator";
+
     // Send invite emails to all active members. Failures don't block the publish.
     const { data: members } = await supabase
       .from("members")
@@ -227,6 +236,7 @@ export async function publishEvent(formData: FormData) {
         sendInvite({
           to: m.email,
           recipientName: m.name,
+          senderName,
           eventId: event.id,
           eventName: event.name,
           eventDescription: event.description,
