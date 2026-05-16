@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { createTemplate, deleteTemplate } from "./actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type Template = {
   id: string;
@@ -23,12 +24,9 @@ export default async function TemplatesPage() {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Mass Templates</h1>
         <form action={createTemplate}>
-          <button
-            type="submit"
-            className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer"
-          >
+          <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
             + New Template
-          </button>
+          </SubmitButton>
         </form>
       </div>
 
@@ -64,12 +62,9 @@ export default async function TemplatesPage() {
                 </Link>
                 <form action={deleteTemplate}>
                   <input type="hidden" name="id" value={t.id} />
-                  <button
-                    type="submit"
-                    className="text-xs px-2 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer"
-                  >
+                  <SubmitButton className="text-xs px-2 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer">
                     ✕
-                  </button>
+                  </SubmitButton>
                 </form>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { requireMember } from "@/lib/auth";
 import Link from "next/link";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type OpenEvent = {
   id: string;
@@ -292,12 +293,9 @@ function Header({
             {initials}
           </div>
           <form action="/auth/signout" method="POST">
-            <button
-              type="submit"
-              className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer"
-            >
+            <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
               Sign out
-            </button>
+            </SubmitButton>
           </form>
         </div>
       </div>

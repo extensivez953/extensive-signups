@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { addMember, updateMember, deleteMember } from "./actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type Member = {
   id: string;
@@ -65,12 +66,9 @@ export default async function RosterPage() {
             <option value="member">Member</option>
             <option value="admin">Admin</option>
           </select>
-          <button
-            type="submit"
-            className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer"
-          >
+          <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
             Add
-          </button>
+          </SubmitButton>
         </form>
       </section>
 
@@ -153,20 +151,16 @@ function MemberRow({ member }: { member: Member }) {
         <option value="true">Active</option>
         <option value="false">Inactive</option>
       </select>
-      <button
-        type="submit"
-        className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer"
-      >
+      <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
         Save
-      </button>
-      <button
-        type="submit"
+      </SubmitButton>
+      <SubmitButton
         formAction={deleteMember}
         className="text-xs px-2 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer"
         title="Remove"
       >
         ✕
-      </button>
+      </SubmitButton>
     </form>
   );
 }

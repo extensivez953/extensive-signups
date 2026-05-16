@@ -8,6 +8,7 @@ import {
   deleteEvent,
   updateSlotCapacity,
 } from "../actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type Mass = {
   id: string;
@@ -103,12 +104,9 @@ export default async function EventDetailPage({
             defaultValue={event.gap_alert_hours}
             className="w-20 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-sm"
           />
-          <button
-            type="submit"
-            className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer"
-          >
+          <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
             Save
-          </button>
+          </SubmitButton>
           <div className="flex-1" />
           <StatusBadge status={event.status} />
         </div>
@@ -119,23 +117,17 @@ export default async function EventDetailPage({
         {event.status === "draft" && (
           <form action={publishEvent}>
             <input type="hidden" name="id" value={event.id} />
-            <button
-              type="submit"
-              className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer"
-            >
+            <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
               Publish &amp; Send Invites
-            </button>
+            </SubmitButton>
           </form>
         )}
         {event.status === "open" && (
           <form action={closeEvent}>
             <input type="hidden" name="id" value={event.id} />
-            <button
-              type="submit"
-              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-semibold cursor-pointer"
-            >
+            <SubmitButton className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-semibold cursor-pointer">
               Close Event
-            </button>
+            </SubmitButton>
           </form>
         )}
         <Link
@@ -147,12 +139,9 @@ export default async function EventDetailPage({
         <div className="flex-1" />
         <form action={deleteEvent}>
           <input type="hidden" name="id" value={event.id} />
-          <button
-            type="submit"
-            className="px-3 py-2 text-red-300 hover:bg-red-900/20 rounded-lg text-sm cursor-pointer"
-          >
+          <SubmitButton className="px-3 py-2 text-red-300 hover:bg-red-900/20 rounded-lg text-sm cursor-pointer">
             Delete Event
-          </button>
+          </SubmitButton>
         </form>
       </div>
 
@@ -227,12 +216,9 @@ export default async function EventDetailPage({
                             defaultValue={s.capacity}
                             className="w-14 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs"
                           />
-                          <button
-                            type="submit"
-                            className="text-xs px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer"
-                          >
+                          <SubmitButton className="text-xs px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
                             Save
-                          </button>
+                          </SubmitButton>
                         </form>
                         <div
                           className={`px-2 py-1 rounded-lg text-xs font-medium ${

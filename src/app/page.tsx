@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { signInWithGoogle } from "./actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 export default async function LoginPage({
   searchParams,
@@ -47,10 +48,7 @@ export default async function LoginPage({
         )}
 
         <form action={signInWithGoogle}>
-          <button
-            type="submit"
-            className="w-full bg-white text-slate-900 font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-3 hover:bg-slate-100 transition cursor-pointer"
-          >
+          <SubmitButton className="w-full bg-white text-slate-900 font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-3 hover:bg-slate-100 transition cursor-pointer">
             <svg className="w-5 h-5" viewBox="0 0 48 48">
               <path
                 fill="#FFC107"
@@ -70,7 +68,7 @@ export default async function LoginPage({
               />
             </svg>
             Continue with Google
-          </button>
+          </SubmitButton>
         </form>
 
         <p className="mt-8 text-xs text-slate-500">

@@ -7,6 +7,7 @@ import {
   deleteTemplateItem,
   updateTemplateSlot,
 } from "../actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type TemplateItem = {
   id: string;
@@ -67,12 +68,9 @@ export default async function TemplateDetailPage({
           defaultValue={template.name}
           className="text-2xl font-bold bg-transparent border-0 border-b border-slate-700 focus:border-[#a86060] focus:outline-none px-1 flex-1"
         />
-        <button
-          type="submit"
-          className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer"
-        >
+        <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
           Save name
-        </button>
+        </SubmitButton>
       </form>
 
       <section className="mb-8">
@@ -109,12 +107,9 @@ export default async function TemplateDetailPage({
             defaultValue="SJA"
             className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm"
           />
-          <button
-            type="submit"
-            className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer"
-          >
+          <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
             Add Mass
-          </button>
+          </SubmitButton>
         </form>
         <p className="text-xs text-slate-500 mt-2">
           New Masses get default slots: Team Lead × 1, Medic × 1, Team Member ×
@@ -152,12 +147,9 @@ export default async function TemplateDetailPage({
                       name="template_id"
                       value={template.id}
                     />
-                    <button
-                      type="submit"
-                      className="text-xs text-red-300 hover:bg-red-900/20 px-2 py-1 rounded-lg cursor-pointer"
-                    >
+                    <SubmitButton className="text-xs text-red-300 hover:bg-red-900/20 px-2 py-1 rounded-lg cursor-pointer">
                       Remove Mass
-                    </button>
+                    </SubmitButton>
                   </form>
                 </div>
                 <div className="divide-y divide-slate-800">
@@ -188,12 +180,9 @@ export default async function TemplateDetailPage({
                           defaultValue={slot.capacity}
                           className="w-16 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-sm"
                         />
-                        <button
-                          type="submit"
-                          className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer"
-                        >
+                        <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
                           Save
-                        </button>
+                        </SubmitButton>
                       </form>
                     ))}
                 </div>

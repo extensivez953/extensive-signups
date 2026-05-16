@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { signUpForSlot } from "./actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 export function SignupModal({
   slotId,
@@ -110,12 +111,9 @@ export function SignupModal({
                 >
                   Cancel
                 </button>
-                <button
-                  type="submit"
-                  className="flex-1 py-2.5 px-4 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer"
-                >
+                <SubmitButton className="flex-1 py-2.5 px-4 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
                   Confirm Signup
-                </button>
+                </SubmitButton>
               </div>
             </form>
           </div>

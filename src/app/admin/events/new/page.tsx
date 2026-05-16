@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { createEvent } from "../actions";
+import { SubmitButton } from "@/components/SubmitButton";
 
 export default async function NewEventPage() {
   const supabase = await createClient();
@@ -93,12 +94,9 @@ export default async function NewEventPage() {
           >
             Cancel
           </Link>
-          <button
-            type="submit"
-            className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer"
-          >
+          <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
             Create Event (as Draft)
-          </button>
+          </SubmitButton>
         </div>
       </form>
     </div>

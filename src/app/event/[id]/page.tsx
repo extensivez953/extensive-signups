@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { cancelSignup } from "./actions";
 import { SignupModal } from "./SignupModal";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type Mass = {
   id: string;
@@ -221,12 +222,9 @@ function MassCard({
                   <form action={cancelSignup}>
                     <input type="hidden" name="signup_id" value={mine.id} />
                     <input type="hidden" name="event_id" value={eventId} />
-                    <button
-                      type="submit"
-                      className="text-xs px-3 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer"
-                    >
+                    <SubmitButton className="text-xs px-3 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer">
                       Cancel
-                    </button>
+                    </SubmitButton>
                   </form>
                 ) : filled || !eventOpen ? (
                   <div className="px-3 py-1 bg-slate-800 text-slate-400 rounded-lg text-xs font-medium">
