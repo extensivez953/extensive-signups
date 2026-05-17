@@ -134,7 +134,7 @@ export default async function DashboardPage() {
         {/* Open invitations */}
         {openEvents.length > 0 && (
           <section className="mb-10">
-            <div className="text-xs font-semibold text-[#c88080] uppercase tracking-wider mb-3">
+            <div className="text-xs font-semibold text-[#b85a5a] uppercase tracking-wider mb-3">
               {openEvents.length === 1 ? "Open invitation" : "Open invitations"}
             </div>
             <div className="space-y-3">
@@ -160,7 +160,7 @@ export default async function DashboardPage() {
                   <Link
                     key={e.id}
                     href={`/event/${e.id}`}
-                    className="block bg-gradient-to-br from-[#8a4f4f] to-[#a86060] rounded-2xl p-6 hover:from-[#a86060] hover:to-[#b87070] transition-all shadow-lg hover:shadow-xl"
+                    className="block bg-gradient-to-br from-[#751313] to-[#832b2b] rounded-2xl p-6 hover:from-[#832b2b] hover:to-[#a04444] transition-all shadow-lg hover:shadow-xl"
                   >
                     <div className="flex items-start justify-between mb-3">
                       <h2 className="text-xl font-bold">{e.name}</h2>
@@ -256,7 +256,7 @@ function Header({
     <header className="border-b border-slate-800 bg-slate-900">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-[#a86060] rounded-lg flex items-center justify-center">
+          <div className="w-9 h-9 bg-[#832b2b] rounded-lg flex items-center justify-center">
             <svg
               className="w-5 h-5 text-white"
               fill="none"
@@ -289,7 +289,7 @@ function Header({
             <div className="text-sm font-medium">{name}</div>
             <div className="text-xs text-slate-500">{email}</div>
           </div>
-          <div className="w-9 h-9 bg-[#8a4f4f] rounded-full flex items-center justify-center font-semibold text-sm">
+          <div className="w-9 h-9 bg-[#751313] rounded-full flex items-center justify-center font-semibold text-sm">
             {initials}
           </div>
           <form action="/auth/signout" method="POST">
@@ -317,7 +317,7 @@ function CommitmentCard({ commitment }: { commitment: UpcomingCommitment }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-4 hover:border-slate-700 transition">
       <div className="text-center min-w-[60px]">
-        <div className="text-xs text-[#c88080] font-semibold">{dow}</div>
+        <div className="text-xs text-[#b85a5a] font-semibold">{dow}</div>
         <div className="text-2xl font-bold">{dom}</div>
         <div className="text-xs text-slate-500">{mon}</div>
       </div>

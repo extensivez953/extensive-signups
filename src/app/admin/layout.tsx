@@ -13,7 +13,7 @@ export default async function AdminLayout({
       <header className="border-b border-slate-800 bg-slate-900">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/dashboard" className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-[#a86060] rounded-lg flex items-center justify-center">
+            <div className="w-9 h-9 bg-[#832b2b] rounded-lg flex items-center justify-center">
               <svg
                 className="w-5 h-5 text-white"
                 fill="none"

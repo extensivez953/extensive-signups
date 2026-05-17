@@ -28,7 +28,7 @@ export default async function EventsPage() {
         <h1 className="text-2xl font-bold">Events</h1>
         <Link
           href="/admin/events/new"
-          className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white"
+          className="px-4 py-2 bg-[#832b2b] hover:bg-[#a04444] rounded-lg text-sm font-semibold text-white"
         >
           + Create Event
         </Link>

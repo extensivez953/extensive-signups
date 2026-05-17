@@ -24,7 +24,7 @@ export function SignupModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="px-3 py-1 bg-[#a86060] hover:bg-[#b87070] text-white rounded-lg text-xs font-semibold cursor-pointer"
+        className="px-3 py-1 bg-[#832b2b] hover:bg-[#a04444] text-white rounded-lg text-xs font-semibold cursor-pointer"
       >
         Sign Up
       </button>
@@ -79,7 +79,7 @@ export function SignupModal({
                   name="comment"
                   rows={2}
                   placeholder="Anything to mention..."
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
                 />
               </label>
 
@@ -88,7 +88,7 @@ export function SignupModal({
                   type="checkbox"
                   checked={useAltName}
                   onChange={(e) => setUseAltName(e.target.checked)}
-                  className="rounded border-slate-700 bg-slate-800 text-[#a86060] focus:ring-[#a86060]"
+                  className="rounded border-slate-700 bg-slate-800 text-[#832b2b] focus:ring-[#832b2b]"
                 />
                 <span className="text-sm text-slate-300">
                   Sign up with a different display name (e.g. spouse, child)
@@ -99,7 +99,7 @@ export function SignupModal({
                 <input
                   name="display_name"
                   placeholder="Display name"
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm mb-3 focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm mb-3 focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
                 />
               )}
 
@@ -111,7 +111,7 @@ export function SignupModal({
                 >
                   Cancel
                 </button>
-                <SubmitButton className="flex-1 py-2.5 px-4 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
+                <SubmitButton className="flex-1 py-2.5 px-4 bg-[#832b2b] hover:bg-[#a04444] rounded-lg text-sm font-semibold text-white cursor-pointer">
                   Confirm Signup
                 </SubmitButton>
               </div>

@@ -22,7 +22,7 @@ export default async function LoginPage({
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-slate-950">
       <div className="max-w-md w-full text-center">
-        <div className="w-16 h-16 bg-[#a86060] rounded-2xl flex items-center justify-center mx-auto mb-8">
+        <div className="w-16 h-16 bg-[#832b2b] rounded-2xl flex items-center justify-center mx-auto mb-8">
           <svg
             className="w-8 h-8 text-white"
             fill="none"

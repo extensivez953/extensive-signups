@@ -29,7 +29,7 @@ export default async function NewEventPage() {
             name="name"
             placeholder="Mass Signups: 16-17 and 23-24 May 2026"
             required
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
         </Field>
 
@@ -38,7 +38,7 @@ export default async function NewEventPage() {
             name="description"
             rows={3}
             placeholder="Please pick a slot for both Mass weekends. Thank you!"
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
         </Field>
 
@@ -47,7 +47,7 @@ export default async function NewEventPage() {
             name="start_date"
             type="date"
             required
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
         </Field>
 
@@ -55,7 +55,7 @@ export default async function NewEventPage() {
           <select
             name="template_id"
             defaultValue=""
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           >
             <option value="">— No template (add masses manually) —</option>
             {list.map((t) => (
@@ -74,7 +74,7 @@ export default async function NewEventPage() {
           <select
             name="weekends"
             defaultValue="1"
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           >
             <option value="1">1 weekend</option>
             <option value="2">2 weekends</option>
@@ -94,7 +94,7 @@ export default async function NewEventPage() {
           >
             Cancel
           </Link>
-          <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
+          <SubmitButton className="px-4 py-2 bg-[#832b2b] hover:bg-[#a04444] rounded-lg text-sm font-semibold text-white cursor-pointer">
             Create Event (as Draft)
           </SubmitButton>
         </div>

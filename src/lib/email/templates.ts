@@ -5,11 +5,11 @@
  * Design language:
  *   - Light background, dark text (most clients dark-mode invert anyway)
  *   - Single column, no fancy CSS
- *   - Maroon accent (#a86060)
+ *   - Maroon accent (#832b2b)
  */
 
-const ACCENT = "#a86060";
-const ACCENT_DARK = "#8a4f4f";
+const ACCENT = "#832b2b";
+const ACCENT_DARK = "#751313";
 
 function shell(opts: { subject: string; bodyHtml: string; coordinatorName?: string }) {
   return `<!DOCTYPE html>

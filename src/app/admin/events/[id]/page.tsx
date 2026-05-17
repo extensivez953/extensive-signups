@@ -86,14 +86,14 @@ export default async function EventDetailPage({
         <input
           name="name"
           defaultValue={event.name}
-          className="text-2xl font-bold bg-transparent border-0 border-b border-slate-700 focus:border-[#a86060] focus:outline-none px-1 w-full mb-3"
+          className="text-2xl font-bold bg-transparent border-0 border-b border-slate-700 focus:border-[#832b2b] focus:outline-none px-1 w-full mb-3"
         />
         <textarea
           name="description"
           defaultValue={event.description ?? ""}
           rows={2}
           placeholder="Description (optional)"
-          className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent mb-3"
+          className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent mb-3"
         />
         <div className="flex items-center gap-3">
           <label className="text-sm text-slate-400">Gap alert (hrs):</label>
@@ -117,7 +117,7 @@ export default async function EventDetailPage({
         {event.status === "draft" && (
           <form action={publishEvent}>
             <input type="hidden" name="id" value={event.id} />
-            <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
+            <SubmitButton className="px-4 py-2 bg-[#832b2b] hover:bg-[#a04444] rounded-lg text-sm font-semibold text-white cursor-pointer">
               Publish &amp; Send Invites
             </SubmitButton>
           </form>

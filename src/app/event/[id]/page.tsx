@@ -115,7 +115,7 @@ export default async function EventPage({
         )}
 
         <div className="mb-8 flex gap-3 text-xs">
-          <Legend color="bg-[#a86060]" label="Open" />
+          <Legend color="bg-[#832b2b]" label="Open" />
           <Legend color="bg-slate-700" label="Filled" />
           <Legend color="bg-green-500" label="You" />
         </div>
@@ -124,7 +124,7 @@ export default async function EventPage({
           .sort((a, b) => a[0].localeCompare(b[0]))
           .map(([date, dateMasses]) => (
             <section key={date} className="mb-8">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-[#c88080] mb-3">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#b85a5a] mb-3">
                 {formatDateHeader(date)}
               </h2>
               <div className="space-y-3">
@@ -211,7 +211,7 @@ function MassCard({
                           .map((s) => s.display_name ?? s.member.name)
                           .join(" · ")}
                     {!filled && confirmed.length > 0 && (
-                      <span className="text-[#c88080]">
+                      <span className="text-[#b85a5a]">
                         {" "}
                         · {openCount} more open
                       </span>

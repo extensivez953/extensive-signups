@@ -44,29 +44,29 @@ export default async function RosterPage() {
             name="name"
             placeholder="Full name"
             required
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
           <input
             name="email"
             type="email"
             placeholder="Gmail address"
             required
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
           <input
             name="phone"
             placeholder="Phone (optional)"
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
           <select
             name="role"
             defaultValue="member"
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none focus:border-transparent"
+            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           >
             <option value="member">Member</option>
             <option value="admin">Admin</option>
           </select>
-          <SubmitButton className="px-4 py-2 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white cursor-pointer">
+          <SubmitButton className="px-4 py-2 bg-[#832b2b] hover:bg-[#a04444] rounded-lg text-sm font-semibold text-white cursor-pointer">
             Add
           </SubmitButton>
         </form>
@@ -110,7 +110,7 @@ function MemberRow({ member }: { member: Member }) {
       className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-3"
     >
       <input type="hidden" name="id" value={member.id} />
-      <div className="w-10 h-10 bg-[#8a4f4f] rounded-full flex items-center justify-center font-semibold text-sm">
+      <div className="w-10 h-10 bg-[#751313] rounded-full flex items-center justify-center font-semibold text-sm">
         {member.name
           .split(" ")
           .map((p) => p[0])
@@ -121,19 +121,19 @@ function MemberRow({ member }: { member: Member }) {
       <input
         name="name"
         defaultValue={member.name}
-        className="flex-1 min-w-0 bg-transparent border-0 px-2 py-1 text-sm focus:ring-2 focus:ring-[#a86060] focus:outline-none rounded-md"
+        className="flex-1 min-w-0 bg-transparent border-0 px-2 py-1 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
       />
       <input
         name="email"
         type="email"
         defaultValue={member.email}
-        className="flex-1 min-w-0 bg-transparent border-0 px-2 py-1 text-xs text-slate-400 focus:ring-2 focus:ring-[#a86060] focus:outline-none rounded-md"
+        className="flex-1 min-w-0 bg-transparent border-0 px-2 py-1 text-xs text-slate-400 focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
       />
       <input
         name="phone"
         defaultValue={member.phone ?? ""}
         placeholder="Phone"
-        className="w-32 bg-transparent border-0 px-2 py-1 text-xs text-slate-400 focus:ring-2 focus:ring-[#a86060] focus:outline-none rounded-md"
+        className="w-32 bg-transparent border-0 px-2 py-1 text-xs text-slate-400 focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
       />
       <select
         name="role"

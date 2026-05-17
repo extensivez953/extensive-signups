@@ -76,7 +76,7 @@ export default async function ConfirmedPage({
           </a>
           <Link
             href={`/event/${id}`}
-            className="flex-1 py-2.5 px-4 bg-[#a86060] hover:bg-[#b87070] rounded-lg text-sm font-semibold text-white"
+            className="flex-1 py-2.5 px-4 bg-[#832b2b] hover:bg-[#a04444] rounded-lg text-sm font-semibold text-white"
           >
             Done
           </Link>
