@@ -20,7 +20,7 @@ export default async function LoginPage({
   const { error, sent, msg } = await searchParams;
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-slate-950">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50">
       <div className="max-w-md w-full text-center">
         <div className="w-16 h-16 bg-[#832b2b] rounded-2xl flex items-center justify-center mx-auto mb-8">
           <svg
@@ -37,18 +37,18 @@ export default async function LoginPage({
             />
           </svg>
         </div>
-        <h1 className="text-3xl font-bold mb-2 text-slate-100">
+        <h1 className="text-3xl font-bold mb-2 text-gray-900">
           Safety Team Signups
         </h1>
-        <p className="text-slate-400 mb-10">St John the Apostle</p>
+        <p className="text-gray-500 mb-10">St John the Apostle</p>
 
         {error === "auth" && (
-          <div className="mb-6 p-3 bg-red-900/30 border border-red-800 rounded-lg text-sm text-red-200">
+          <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
             Sign-in failed. Please try again.
           </div>
         )}
         {error === "email" && (
-          <div className="mb-6 p-3 bg-red-900/30 border border-red-800 rounded-lg text-sm text-red-200">
+          <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
             {msg ?? "Couldn't send the sign-in link. Please try again."}
           </div>
         )}
@@ -79,17 +79,17 @@ export default async function LoginPage({
 
         <MagicLinkForm sentTo={sent} />
 
-        <p className="mt-8 text-xs text-slate-500">
+        <p className="mt-8 text-xs text-gray-500">
           Sign in is restricted to team members.
           <br />
           Contact Mike Repa if you need access.
         </p>
-        <p className="mt-6 text-xs text-slate-600">
-          <a href="/privacy" className="hover:text-slate-400 underline">
+        <p className="mt-6 text-xs text-gray-400">
+          <a href="/privacy" className="hover:text-gray-500 underline">
             Privacy
           </a>
           {" · "}
-          <a href="/terms" className="hover:text-slate-400 underline">
+          <a href="/terms" className="hover:text-gray-500 underline">
             Terms
           </a>
         </p>

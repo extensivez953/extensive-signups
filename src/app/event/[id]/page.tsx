@@ -69,12 +69,12 @@ export default async function EventPage({
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <header className="border-b border-slate-800 bg-slate-900">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="border-b border-gray-200 bg-white">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
             href="/dashboard"
-            className="text-sm text-slate-400 hover:text-white flex items-center gap-2"
+            className="text-sm text-gray-500 hover:text-gray-900 flex items-center gap-2"
           >
             <svg
               className="w-4 h-4"
@@ -91,7 +91,7 @@ export default async function EventPage({
             </svg>
             Back
           </Link>
-          <div className="text-sm text-slate-400">{member.name}</div>
+          <div className="text-sm text-gray-500">{member.name}</div>
         </div>
       </header>
 
@@ -99,17 +99,17 @@ export default async function EventPage({
         <div className="mb-6">
           <h1 className="text-2xl font-bold mb-2">{event.name}</h1>
           {event.description && (
-            <p className="text-slate-400">{event.description}</p>
+            <p className="text-gray-500">{event.description}</p>
           )}
         </div>
 
         {error === "full" && (
-          <div className="mb-4 p-3 bg-red-900/30 border border-red-800 rounded-lg text-sm text-red-200">
+          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
             That slot just filled up. Please pick another.
           </div>
         )}
         {error === "already" && (
-          <div className="mb-4 p-3 bg-amber-900/30 border border-amber-800 rounded-lg text-sm text-amber-200">
+          <div className="mb-4 p-3 bg-amber-900/30 border border-amber-800 rounded-lg text-sm text-amber-800">
             You&apos;re already signed up for that slot.
           </div>
         )}
@@ -144,7 +144,7 @@ export default async function EventPage({
           ))}
 
         {masses.length === 0 && (
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center text-slate-500">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 text-center text-gray-500">
             No Masses in this event yet.
           </div>
         )}
@@ -157,7 +157,7 @@ function Legend({ color, label }: { color: string; label: string }) {
   return (
     <div className="flex items-center gap-2">
       <div className={`w-3 h-3 rounded-full ${color}`} />
-      <span className="text-slate-400">{label}</span>
+      <span className="text-gray-500">{label}</span>
     </div>
   );
 }
@@ -174,12 +174,12 @@ function MassCard({
   eventOpen: boolean;
 }) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div className="px-5 py-3 bg-slate-800/50 border-b border-slate-800 flex items-center justify-between">
+    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+      <div className="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
         <div className="font-semibold">{mass.label}</div>
-        <div className="text-xs text-slate-500">{mass.location}</div>
+        <div className="text-xs text-gray-500">{mass.location}</div>
       </div>
-      <div className="divide-y divide-slate-800">
+      <div className="divide-y divide-gray-200">
         {mass.slots
           .sort((a, b) => a.display_order - b.display_order)
           .map((slot) => {
@@ -199,12 +199,12 @@ function MassCard({
                   <div className="text-sm font-medium flex items-center gap-2 flex-wrap">
                     {slot.role}
                     {mine && (
-                      <span className="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full font-semibold">
+                      <span className="text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full font-semibold">
                         You&apos;re signed up
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-slate-500 mt-0.5 truncate">
+                  <div className="text-xs text-gray-500 mt-0.5 truncate">
                     {confirmed.length === 0
                       ? "Open"
                       : confirmed
@@ -222,12 +222,12 @@ function MassCard({
                   <form action={cancelSignup}>
                     <input type="hidden" name="signup_id" value={mine.id} />
                     <input type="hidden" name="event_id" value={eventId} />
-                    <SubmitButton className="text-xs px-3 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer">
+                    <SubmitButton className="text-xs px-3 py-1.5 text-red-600 hover:bg-red-50 rounded-lg cursor-pointer">
                       Cancel
                     </SubmitButton>
                   </form>
                 ) : filled || !eventOpen ? (
-                  <div className="px-3 py-1 bg-slate-800 text-slate-400 rounded-lg text-xs font-medium">
+                  <div className="px-3 py-1 bg-gray-100 text-gray-500 rounded-lg text-xs font-medium">
                     {filled ? "Filled" : "Closed"}
                   </div>
                 ) : (

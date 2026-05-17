@@ -75,7 +75,7 @@ export default async function EventDetailPage({
     <div>
       <Link
         href="/admin/events"
-        className="text-sm text-slate-400 hover:text-white mb-4 inline-flex items-center gap-1"
+        className="text-sm text-gray-500 hover:text-gray-900 mb-4 inline-flex items-center gap-1"
       >
         ← Back to events
       </Link>
@@ -86,25 +86,25 @@ export default async function EventDetailPage({
         <input
           name="name"
           defaultValue={event.name}
-          className="text-2xl font-bold bg-transparent border-0 border-b border-slate-700 focus:border-[#832b2b] focus:outline-none px-1 w-full mb-3"
+          className="text-2xl font-bold bg-transparent border-0 border-b border-gray-300 focus:border-[#832b2b] focus:outline-none px-1 w-full mb-3"
         />
         <textarea
           name="description"
           defaultValue={event.description ?? ""}
           rows={2}
           placeholder="Description (optional)"
-          className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent mb-3"
+          className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent mb-3"
         />
         <div className="flex items-center gap-3">
-          <label className="text-sm text-slate-400">Gap alert (hrs):</label>
+          <label className="text-sm text-gray-500">Gap alert (hrs):</label>
           <input
             name="gap_alert_hours"
             type="number"
             min={1}
             defaultValue={event.gap_alert_hours}
-            className="w-20 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-sm"
+            className="w-20 bg-gray-100 border border-gray-300 rounded-lg px-2 py-1 text-sm"
           />
-          <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
+          <SubmitButton className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer">
             Save
           </SubmitButton>
           <div className="flex-1" />
@@ -125,21 +125,21 @@ export default async function EventDetailPage({
         {event.status === "open" && (
           <form action={closeEvent}>
             <input type="hidden" name="id" value={event.id} />
-            <SubmitButton className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-semibold cursor-pointer">
+            <SubmitButton className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-semibold cursor-pointer">
               Close Event
             </SubmitButton>
           </form>
         )}
         <Link
           href={`/event/${event.id}`}
-          className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-semibold"
+          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-semibold"
         >
           View as Member →
         </Link>
         <div className="flex-1" />
         <form action={deleteEvent}>
           <input type="hidden" name="id" value={event.id} />
-          <SubmitButton className="px-3 py-2 text-red-300 hover:bg-red-900/20 rounded-lg text-sm cursor-pointer">
+          <SubmitButton className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg text-sm cursor-pointer">
             Delete Event
           </SubmitButton>
         </form>
@@ -156,28 +156,28 @@ export default async function EventDetailPage({
       </div>
 
       {/* Masses + slots */}
-      <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+      <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
         Masses ({masses.length})
       </h2>
       <div className="space-y-3">
         {masses.length === 0 ? (
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center text-slate-500">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 text-center text-gray-500">
             No Masses in this event yet.
           </div>
         ) : (
           masses.map((m) => (
             <div
               key={m.id}
-              className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden"
+              className="bg-white border border-gray-200 rounded-xl overflow-hidden"
             >
-              <div className="px-5 py-3 bg-slate-800/50 border-b border-slate-800">
+              <div className="px-5 py-3 bg-gray-50 border-b border-gray-200">
                 <div className="font-semibold">{m.label}</div>
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-gray-500">
                   {formatDate(m.mass_date)} · {m.start_time.slice(0, 5)} ·{" "}
                   {m.location}
                 </div>
               </div>
-              <div className="divide-y divide-slate-800">
+              <div className="divide-y divide-gray-200">
                 {m.slots
                   .sort((a, b) => a.display_order - b.display_order)
                   .map((s) => {
@@ -191,7 +191,7 @@ export default async function EventDetailPage({
                       >
                         <div className="flex-1">
                           <div className="text-sm font-medium">{s.role}</div>
-                          <div className="text-xs text-slate-500 mt-0.5">
+                          <div className="text-xs text-gray-500 mt-0.5">
                             {confirmed.length === 0
                               ? "Empty"
                               : confirmed
@@ -206,7 +206,7 @@ export default async function EventDetailPage({
                             name="event_id"
                             value={event.id}
                           />
-                          <label className="text-xs text-slate-500">
+                          <label className="text-xs text-gray-500">
                             cap
                           </label>
                           <input
@@ -214,17 +214,17 @@ export default async function EventDetailPage({
                             type="number"
                             min={1}
                             defaultValue={s.capacity}
-                            className="w-14 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs"
+                            className="w-14 bg-gray-100 border border-gray-300 rounded-lg px-2 py-1 text-xs"
                           />
-                          <SubmitButton className="text-xs px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
+                          <SubmitButton className="text-xs px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer">
                             Save
                           </SubmitButton>
                         </form>
                         <div
                           className={`px-2 py-1 rounded-lg text-xs font-medium ${
                             confirmed.length >= s.capacity
-                              ? "bg-green-900/40 text-green-300"
-                              : "bg-amber-900/40 text-amber-300"
+                              ? "bg-green-900/40 text-green-700"
+                              : "bg-amber-100 text-amber-700"
                           }`}
                         >
                           {confirmed.length} / {s.capacity}
@@ -243,9 +243,9 @@ export default async function EventDetailPage({
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+    <div className="bg-white border border-gray-200 rounded-xl p-4">
       <div className="text-2xl font-bold">{value}</div>
-      <div className="text-xs text-slate-500 mt-1">{label}</div>
+      <div className="text-xs text-gray-500 mt-1">{label}</div>
     </div>
   );
 }
@@ -253,10 +253,10 @@ function Stat({ label, value }: { label: string; value: string }) {
 function StatusBadge({ status }: { status: string }) {
   const styles =
     status === "open"
-      ? "bg-green-900/40 text-green-300"
+      ? "bg-green-900/40 text-green-700"
       : status === "draft"
-        ? "bg-amber-900/40 text-amber-300"
-        : "bg-slate-800 text-slate-400";
+        ? "bg-amber-100 text-amber-700"
+        : "bg-gray-100 text-gray-500";
   return (
     <span className={`text-xs px-3 py-1 rounded-full font-medium ${styles}`}>
       {status}

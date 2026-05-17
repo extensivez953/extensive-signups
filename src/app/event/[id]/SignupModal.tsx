@@ -35,20 +35,20 @@ export function SignupModal({
           onClick={() => setOpen(false)}
         >
           <div
-            className="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6"
+            className="bg-white border border-gray-200 rounded-2xl max-w-md w-full p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between mb-6">
               <div>
                 <h2 className="text-xl font-bold mb-1">Sign me up</h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-gray-500">
                   {slotLabel} · {formatDate(massDate)} ·{" "}
                   {massTime.slice(0, 5)}
                 </p>
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="text-slate-400 hover:text-white cursor-pointer"
+                className="text-gray-500 hover:text-gray-900 cursor-pointer"
                 aria-label="Close"
               >
                 <svg
@@ -79,7 +79,7 @@ export function SignupModal({
                   name="comment"
                   rows={2}
                   placeholder="Anything to mention..."
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+                  className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
                 />
               </label>
 
@@ -88,9 +88,9 @@ export function SignupModal({
                   type="checkbox"
                   checked={useAltName}
                   onChange={(e) => setUseAltName(e.target.checked)}
-                  className="rounded border-slate-700 bg-slate-800 text-[#832b2b] focus:ring-[#832b2b]"
+                  className="rounded border-gray-300 bg-gray-100 text-[#832b2b] focus:ring-[#832b2b]"
                 />
-                <span className="text-sm text-slate-300">
+                <span className="text-sm text-gray-700">
                   Sign up with a different display name (e.g. spouse, child)
                 </span>
               </label>
@@ -99,7 +99,7 @@ export function SignupModal({
                 <input
                   name="display_name"
                   placeholder="Display name"
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm mb-3 focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+                  className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm mb-3 focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
                 />
               )}
 
@@ -107,7 +107,7 @@ export function SignupModal({
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="flex-1 py-2.5 px-4 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-medium cursor-pointer"
+                  className="flex-1 py-2.5 px-4 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium cursor-pointer"
                 >
                   Cancel
                 </button>

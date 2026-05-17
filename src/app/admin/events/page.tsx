@@ -72,7 +72,7 @@ function Section({
 }) {
   return (
     <section className="mb-8">
-      <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+      <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
         {title} ({count})
       </h2>
       <div className="space-y-2">{children}</div>
@@ -82,7 +82,7 @@ function Section({
 
 function EmptyState({ text }: { text: string }) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center text-slate-500">
+    <div className="bg-white border border-gray-200 rounded-xl p-8 text-center text-gray-500">
       {text}
     </div>
   );
@@ -104,19 +104,19 @@ function EventRowCard({
   return (
     <Link
       href={`/admin/events/${event.id}`}
-      className="block bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition"
+      className="block bg-white border border-gray-200 rounded-xl p-4 hover:border-gray-300 transition"
     >
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
             <div className="font-medium">{event.name}</div>
             {variant === "draft" && (
-              <span className="text-xs px-2 py-0.5 bg-amber-900/40 text-amber-300 rounded-full">
+              <span className="text-xs px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full">
                 Draft
               </span>
             )}
           </div>
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-gray-500">
             {massCount} Masses
             {earliest && (
               <>

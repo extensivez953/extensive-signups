@@ -4,13 +4,13 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <main className="max-w-3xl mx-auto px-6 py-12 space-y-5">
-        <a href="/" className="text-sm text-slate-400 hover:text-white">
+        <a href="/" className="text-sm text-gray-500 hover:text-gray-900">
           ← Back to home
         </a>
         <h1 className="text-3xl font-bold mt-4">Privacy Policy</h1>
-        <p className="text-sm text-slate-500">Last updated: 2026</p>
+        <p className="text-sm text-gray-500">Last updated: 2026</p>
 
         <p>
           The Safety Team Signups application (the &ldquo;App&rdquo;) is a
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         <Section title="Who runs this">
           <p>
             The App is operated by the St John the Apostle safety team
-            coordinator. Contact: <code className="bg-slate-800 px-1 rounded">extensive@gmail.com</code>.
+            coordinator. Contact: <code className="bg-gray-100 px-1 rounded">extensive@gmail.com</code>.
           </p>
         </Section>
 

@@ -4,13 +4,13 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <main className="max-w-3xl mx-auto px-6 py-12 space-y-5">
-        <a href="/" className="text-sm text-slate-400 hover:text-white">
+        <a href="/" className="text-sm text-gray-500 hover:text-gray-900">
           ← Back to home
         </a>
         <h1 className="text-3xl font-bold mt-4">Terms of Service</h1>
-        <p className="text-sm text-slate-500">Last updated: 2026</p>
+        <p className="text-sm text-gray-500">Last updated: 2026</p>
 
         <p>
           The Safety Team Signups application (the &ldquo;App&rdquo;) is

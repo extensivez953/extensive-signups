@@ -27,41 +27,41 @@ export default async function RosterPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Roster</h1>
-        <div className="text-sm text-slate-500">
+        <div className="text-sm text-gray-500">
           {active.length} active · {pending.length} pending
         </div>
       </div>
 
       <section className="mb-8">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
           Add new member
         </h2>
         <form
           action={addMember}
-          className="bg-slate-900 border border-slate-800 rounded-xl p-5 grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_140px_auto] gap-3"
+          className="bg-white border border-gray-200 rounded-xl p-5 grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_140px_auto] gap-3"
         >
           <input
             name="name"
             placeholder="Full name"
             required
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
           <input
             name="email"
             type="email"
             placeholder="Gmail address"
             required
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
           <input
             name="phone"
             placeholder="Phone (optional)"
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
           <select
             name="role"
             defaultValue="member"
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           >
             <option value="member">Member</option>
             <option value="admin">Admin</option>
@@ -74,7 +74,7 @@ export default async function RosterPage() {
 
       {pending.length > 0 && (
         <section className="mb-8">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-3">
             Pending activation ({pending.length})
           </h2>
           <div className="space-y-2">
@@ -86,12 +86,12 @@ export default async function RosterPage() {
       )}
 
       <section>
-        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
           Active ({active.length})
         </h2>
         <div className="space-y-2">
           {active.length === 0 ? (
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 text-center text-slate-500 text-sm">
+            <div className="bg-white border border-gray-200 rounded-xl p-5 text-center text-gray-500 text-sm">
               No active members yet.
             </div>
           ) : (
@@ -107,7 +107,7 @@ function MemberRow({ member }: { member: Member }) {
   return (
     <form
       action={updateMember}
-      className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-3"
+      className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"
     >
       <input type="hidden" name="id" value={member.id} />
       <div className="w-10 h-10 bg-[#751313] rounded-full flex items-center justify-center font-semibold text-sm">
@@ -127,18 +127,18 @@ function MemberRow({ member }: { member: Member }) {
         name="email"
         type="email"
         defaultValue={member.email}
-        className="flex-1 min-w-0 bg-transparent border-0 px-2 py-1 text-xs text-slate-400 focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
+        className="flex-1 min-w-0 bg-transparent border-0 px-2 py-1 text-xs text-gray-500 focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
       />
       <input
         name="phone"
         defaultValue={member.phone ?? ""}
         placeholder="Phone"
-        className="w-32 bg-transparent border-0 px-2 py-1 text-xs text-slate-400 focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
+        className="w-32 bg-transparent border-0 px-2 py-1 text-xs text-gray-500 focus:ring-2 focus:ring-[#832b2b] focus:outline-none rounded-md"
       />
       <select
         name="role"
         defaultValue={member.role}
-        className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs"
+        className="bg-gray-100 border border-gray-300 rounded-lg px-2 py-1 text-xs"
       >
         <option value="member">Member</option>
         <option value="admin">Admin</option>
@@ -146,17 +146,17 @@ function MemberRow({ member }: { member: Member }) {
       <select
         name="active"
         defaultValue={member.active ? "true" : "false"}
-        className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs"
+        className="bg-gray-100 border border-gray-300 rounded-lg px-2 py-1 text-xs"
       >
         <option value="true">Active</option>
         <option value="false">Inactive</option>
       </select>
-      <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
+      <SubmitButton className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer">
         Save
       </SubmitButton>
       <SubmitButton
         formAction={deleteMember}
-        className="text-xs px-2 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer"
+        className="text-xs px-2 py-1.5 text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
         title="Remove"
       >
         ✕

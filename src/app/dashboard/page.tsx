@@ -37,19 +37,19 @@ export default async function DashboardPage() {
   // Inactive members see the pending banner
   if (!member?.active) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100">
+      <div className="min-h-screen bg-gray-50 text-gray-900">
         <Header name={member?.name ?? authEmail} email={authEmail} isAdmin={false} />
         <main className="max-w-5xl mx-auto px-6 py-10">
-          <div className="bg-amber-950/40 border border-amber-900 rounded-2xl p-6">
-            <h2 className="text-xl font-bold text-amber-200 mb-2">
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+            <h2 className="text-xl font-bold text-amber-800 mb-2">
               Account pending activation
             </h2>
-            <p className="text-amber-100/80">
+            <p className="text-amber-700">
               You&apos;ve signed in successfully, but your account hasn&apos;t
               been activated yet. Contact Matt Dooley to be added to the safety
               team.
             </p>
-            <div className="mt-4 text-sm text-amber-100/60">
+            <div className="mt-4 text-sm text-amber-600">
               Signed in as <strong>{authEmail}</strong>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default async function DashboardPage() {
   const asTeamLead = yearShifts.filter((s) => s.slot?.role === "Team Lead").length;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <Header name={member.name} email={authEmail} isAdmin={member.role === "admin"} />
 
       <main className="max-w-5xl mx-auto px-6 py-10">
@@ -199,15 +199,15 @@ export default async function DashboardPage() {
         {/* Upcoming commitments */}
         <section className="mb-10">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
               Your upcoming commitments
             </h3>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-gray-500">
               {upcoming.length} {upcoming.length === 1 ? "shift" : "shifts"}
             </span>
           </div>
           {upcoming.length === 0 ? (
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center text-slate-500">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 text-center text-gray-500">
               {openEvents.length > 0
                 ? "Sign up for a shift above to see it here."
                 : "No upcoming shifts. Wait for the next signup invite."}
@@ -223,7 +223,7 @@ export default async function DashboardPage() {
 
         {/* Year stats */}
         <section>
-          <div className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">
+          <div className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">
             Your year
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -253,7 +253,7 @@ function Header({
     .join("")
     .toUpperCase();
   return (
-    <header className="border-b border-slate-800 bg-slate-900">
+    <header className="border-b border-gray-200 bg-white">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 bg-[#832b2b] rounded-lg flex items-center justify-center">
@@ -273,27 +273,27 @@ function Header({
           </div>
           <div>
             <div className="font-semibold">Safety Team</div>
-            <div className="text-xs text-slate-500">St John the Apostle</div>
+            <div className="text-xs text-gray-500">St John the Apostle</div>
           </div>
         </div>
         <div className="flex items-center gap-3">
           {isAdmin && (
             <Link
               href="/admin/events"
-              className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg"
+              className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg"
             >
               Admin
             </Link>
           )}
           <div className="text-right hidden sm:block">
             <div className="text-sm font-medium">{name}</div>
-            <div className="text-xs text-slate-500">{email}</div>
+            <div className="text-xs text-gray-500">{email}</div>
           </div>
           <div className="w-9 h-9 bg-[#751313] rounded-full flex items-center justify-center font-semibold text-sm">
             {initials}
           </div>
           <form action="/auth/signout" method="POST">
-            <SubmitButton className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg cursor-pointer">
+            <SubmitButton className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer">
               Sign out
             </SubmitButton>
           </form>
@@ -315,28 +315,28 @@ function CommitmentCard({ commitment }: { commitment: UpcomingCommitment }) {
   const time = start_time.slice(0, 5);
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-4 hover:border-slate-700 transition">
+    <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-4 hover:border-gray-300 transition">
       <div className="text-center min-w-[60px]">
         <div className="text-xs text-[#b85a5a] font-semibold">{dow}</div>
         <div className="text-2xl font-bold">{dom}</div>
-        <div className="text-xs text-slate-500">{mon}</div>
+        <div className="text-xs text-gray-500">{mon}</div>
       </div>
       <div className="flex-1">
         <div className="font-medium">
           {commitment.slot.role} · {label}
         </div>
-        <div className="text-sm text-slate-500">
+        <div className="text-sm text-gray-500">
           {location} · {time}
         </div>
         {commitment.comment && (
-          <div className="text-xs text-slate-500 mt-1 italic">
+          <div className="text-xs text-gray-500 mt-1 italic">
             &ldquo;{commitment.comment}&rdquo;
           </div>
         )}
       </div>
       <Link
         href={`/event/${commitment.slot.mass.event_id}`}
-        className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg"
+        className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg"
       >
         View event
       </Link>
@@ -346,9 +346,9 @@ function CommitmentCard({ commitment }: { commitment: UpcomingCommitment }) {
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+    <div className="bg-white border border-gray-200 rounded-xl p-4">
       <div className="text-3xl font-bold">{value}</div>
-      <div className="text-xs text-slate-500 mt-1">{label}</div>
+      <div className="text-xs text-gray-500 mt-1">{label}</div>
     </div>
   );
 }

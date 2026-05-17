@@ -30,7 +30,7 @@ export default async function TemplatesPage() {
         </form>
       </div>
 
-      <p className="text-sm text-slate-400 mb-6">
+      <p className="text-sm text-gray-500 mb-6">
         Templates let you pre-define a Mass schedule (e.g. &ldquo;Standard
         Weekend&rdquo; = Saturday 4pm + Sunday 7:30, 9:15, 11:00) so you can
         quickly create events without filling out every Mass from scratch.
@@ -38,31 +38,31 @@ export default async function TemplatesPage() {
 
       <div className="space-y-2">
         {templates.length === 0 ? (
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center text-slate-500">
+          <div className="bg-white border border-gray-200 rounded-xl p-8 text-center text-gray-500">
             No templates yet. Click &ldquo;New Template&rdquo; to start.
           </div>
         ) : (
           templates.map((t) => (
             <div
               key={t.id}
-              className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center justify-between hover:border-slate-700 transition"
+              className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between hover:border-gray-300 transition"
             >
               <Link href={`/admin/templates/${t.id}`} className="flex-1">
                 <div className="font-medium">{t.name}</div>
-                <div className="text-xs text-slate-500 mt-0.5">
+                <div className="text-xs text-gray-500 mt-0.5">
                   {t.mass_template_items?.[0]?.count ?? 0} Masses
                 </div>
               </Link>
               <div className="flex gap-2">
                 <Link
                   href={`/admin/templates/${t.id}`}
-                  className="text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg"
+                  className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg"
                 >
                   Edit
                 </Link>
                 <form action={deleteTemplate}>
                   <input type="hidden" name="id" value={t.id} />
-                  <SubmitButton className="text-xs px-2 py-1.5 text-red-300 hover:bg-red-900/20 rounded-lg cursor-pointer">
+                  <SubmitButton className="text-xs px-2 py-1.5 text-red-600 hover:bg-red-50 rounded-lg cursor-pointer">
                     ✕
                   </SubmitButton>
                 </form>

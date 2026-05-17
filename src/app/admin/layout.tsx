@@ -9,8 +9,8 @@ export default async function AdminLayout({
   const admin = await requireAdmin();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <header className="border-b border-slate-800 bg-slate-900">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="border-b border-gray-200 bg-white">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/dashboard" className="flex items-center gap-3">
             <div className="w-9 h-9 bg-[#832b2b] rounded-lg flex items-center justify-center">
@@ -30,11 +30,11 @@ export default async function AdminLayout({
             </div>
             <div>
               <div className="font-semibold">Safety Team · Admin</div>
-              <div className="text-xs text-slate-500">St John the Apostle</div>
+              <div className="text-xs text-gray-500">St John the Apostle</div>
             </div>
           </Link>
-          <div className="flex items-center gap-3 text-sm text-slate-400">
-            <Link href="/dashboard" className="hover:text-white">
+          <div className="flex items-center gap-3 text-sm text-gray-500">
+            <Link href="/dashboard" className="hover:text-gray-900">
               ← Back to my view
             </Link>
             <span className="text-slate-700">·</span>
@@ -58,7 +58,7 @@ function AdminTab({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="px-4 py-3 text-sm font-medium text-slate-400 hover:text-white border-b-2 border-transparent hover:border-slate-700"
+      className="px-4 py-3 text-sm font-medium text-gray-500 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-300"
     >
       {label}
     </Link>

@@ -17,7 +17,7 @@ export default async function NewEventPage() {
     <div className="max-w-2xl">
       <Link
         href="/admin/events"
-        className="text-sm text-slate-400 hover:text-white mb-4 inline-flex items-center gap-1"
+        className="text-sm text-gray-500 hover:text-gray-900 mb-4 inline-flex items-center gap-1"
       >
         ← Back to events
       </Link>
@@ -29,7 +29,7 @@ export default async function NewEventPage() {
             name="name"
             placeholder="Mass Signups: 16-17 and 23-24 May 2026"
             required
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
         </Field>
 
@@ -38,7 +38,7 @@ export default async function NewEventPage() {
             name="description"
             rows={3}
             placeholder="Please pick a slot for both Mass weekends. Thank you!"
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
         </Field>
 
@@ -47,7 +47,7 @@ export default async function NewEventPage() {
             name="start_date"
             type="date"
             required
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           />
         </Field>
 
@@ -55,7 +55,7 @@ export default async function NewEventPage() {
           <select
             name="template_id"
             defaultValue=""
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           >
             <option value="">— No template (add masses manually) —</option>
             {list.map((t) => (
@@ -64,7 +64,7 @@ export default async function NewEventPage() {
               </option>
             ))}
           </select>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-gray-500 mt-1">
             If using a template, masses get auto-created with default slot
             capacities. You can adjust everything afterward.
           </p>
@@ -74,14 +74,14 @@ export default async function NewEventPage() {
           <select
             name="weekends"
             defaultValue="1"
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+            className="w-full bg-gray-100 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
           >
             <option value="1">1 weekend</option>
             <option value="2">2 weekends</option>
             <option value="3">3 weekends</option>
             <option value="4">4 weekends</option>
           </select>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-gray-500 mt-1">
             Only applies when using a template. Each weekend uses the same
             schedule, 7 days apart.
           </p>
@@ -90,7 +90,7 @@ export default async function NewEventPage() {
         <div className="flex gap-3 pt-2">
           <Link
             href="/admin/events"
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm"
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm"
           >
             Cancel
           </Link>
