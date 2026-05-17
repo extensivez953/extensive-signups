@@ -54,7 +54,7 @@ export default async function LoginPage({
         )}
 
         <form action={signInWithGoogle}>
-          <SubmitButton className="w-full bg-white text-slate-900 font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-3 hover:bg-slate-100 transition cursor-pointer">
+          <SubmitButton className="w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-100 transition cursor-pointer border border-gray-300">
             <svg className="w-5 h-5" viewBox="0 0 48 48">
               <path
                 fill="#FFC107"

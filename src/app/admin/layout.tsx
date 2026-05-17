@@ -37,7 +37,7 @@ export default async function AdminLayout({
             <Link href="/dashboard" className="hover:text-gray-900">
               ← Back to my view
             </Link>
-            <span className="text-slate-700">·</span>
+            <span className="text-gray-400">·</span>
             <span>{admin.name}</span>
           </div>
         </div>

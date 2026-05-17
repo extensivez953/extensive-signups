@@ -116,7 +116,7 @@ export default async function EventPage({
 
         <div className="mb-8 flex gap-3 text-xs">
           <Legend color="bg-[#832b2b]" label="Open" />
-          <Legend color="bg-slate-700" label="Filled" />
+          <Legend color="bg-gray-300" label="Filled" />
           <Legend color="bg-green-500" label="You" />
         </div>
 

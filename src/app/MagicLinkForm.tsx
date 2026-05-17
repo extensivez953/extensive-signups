@@ -39,7 +39,7 @@ export function MagicLinkForm({ sentTo }: { sentTo?: string }) {
         placeholder="you@example.com"
         required
         autoFocus
-        className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-slate-500 focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
+        className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-[#832b2b] focus:outline-none focus:border-transparent"
       />
       <SubmitButton className="mt-2 w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-3 px-4 rounded-xl cursor-pointer transition">
         Send me a sign-in link
