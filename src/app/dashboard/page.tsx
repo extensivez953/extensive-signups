@@ -160,7 +160,7 @@ export default async function DashboardPage() {
                   <Link
                     key={e.id}
                     href={`/event/${e.id}`}
-                    className="block bg-gradient-to-br from-[#751313] to-[#832b2b] rounded-2xl p-6 hover:from-[#832b2b] hover:to-[#a04444] transition-all shadow-lg hover:shadow-xl"
+                    className="block bg-gradient-to-br from-[#751313] to-[#832b2b] text-white rounded-2xl p-6 hover:from-[#832b2b] hover:to-[#a04444] transition-all shadow-lg hover:shadow-xl"
                   >
                     <div className="flex items-start justify-between mb-3">
                       <h2 className="text-xl font-bold">{e.name}</h2>
@@ -289,7 +289,7 @@ function Header({
             <div className="text-sm font-medium">{name}</div>
             <div className="text-xs text-gray-500">{email}</div>
           </div>
-          <div className="w-9 h-9 bg-[#751313] rounded-full flex items-center justify-center font-semibold text-sm">
+          <div className="w-9 h-9 bg-[#751313] text-white rounded-full flex items-center justify-center font-semibold text-sm">
             {initials}
           </div>
           <form action="/auth/signout" method="POST">

@@ -110,7 +110,7 @@ function MemberRow({ member }: { member: Member }) {
       className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"
     >
       <input type="hidden" name="id" value={member.id} />
-      <div className="w-10 h-10 bg-[#751313] rounded-full flex items-center justify-center font-semibold text-sm">
+      <div className="w-10 h-10 bg-[#751313] text-white rounded-full flex items-center justify-center font-semibold text-sm">
         {member.name
           .split(" ")
           .map((p) => p[0])
